@@ -19,15 +19,10 @@ namespace WindowsFormsApp1
             {
 
                 loadfired = 1;
-
-
-
-
             }
             else if (lodedshots > 0 && bulletespinedgun != 1)
             {
                 loadfired = 2;
-
             }
             return loadfired;
         }

@@ -94,45 +94,6 @@ namespace WindowsFormsApp1
             System.IO.Stream str = WindowsFormsApp1.Properties.Resources.shoot;
             System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
             snd.Play();
-            int shootaway = objRussianRoullete.Shootbullete();
-            if (shootaway == 1)
-            {
-                MessageBox.Show("Gun shot Game over you loose");
-                btgunshoot.Enabled = false;
-                Btshoot.Enabled = false;
-                btgunspin.Enabled = false;
-                btgunload.Enabled = false;
-
-
-            }
-            if (shootaway == 2)//it is a if statement runs only if
-            {
-
-
-                objRussianRoullete.lodedshots = objRussianRoullete.lodedshots - 1;
-                objRussianRoullete.bulletespinedgun = gunloadspinner(objRussianRoullete.bulletespinedgun);
-                MessageBox.Show("missedbullete");
-            }
-
-        }
-        public int gunloadspinner(int loderspin)
-        {
-            if (loderspin == 6)
-            {
-                loderspin = 1;
-            }
-            else
-            {
-                loderspin++;
-            }
-            return loderspin;
-        }
-        private void Btshoot_Click(object sender, EventArgs e)
-        {
-            videoplayer.Image = WindowsFormsApp1.Properties.Resources._3;
-            System.IO.Stream str = WindowsFormsApp1.Properties.Resources.shoot;
-            System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
-            snd.Play();
             int gunshootaway = Missshotbtn();
             if (gunshootaway == 1000)//it is a if statement runs only if
             {
@@ -167,9 +128,44 @@ namespace WindowsFormsApp1
                 btgunspin.Enabled = false;
                 btgunload.Enabled = false;
 
+            }
+        }
+        public int gunloadspinner(int loderspin)
+        {
+            if (loderspin == 6)
+            {
+                loderspin = 1;
+            }
+            else
+            {
+                loderspin++;
+            }
+            return loderspin;
+        }
+        private void Btshoot_Click(object sender, EventArgs e)
+        {
+            videoplayer.Image = WindowsFormsApp1.Properties.Resources._3;
+            System.IO.Stream str = WindowsFormsApp1.Properties.Resources.shoot;
+            System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
+            snd.Play();
+            int shootaway = objRussianRoullete.Shootbullete();
+            if (shootaway == 1)
+            {
+                MessageBox.Show("Gun shot Game over you loose");
+                btgunshoot.Enabled = false;
+                Btshoot.Enabled = false;
+                btgunspin.Enabled = false;
+                btgunload.Enabled = false;
 
 
             }
+            if (shootaway == 2)//it is a if statement runs only if
+            {
+                objRussianRoullete.lodedshots = objRussianRoullete.lodedshots - 1;
+                objRussianRoullete.bulletespinedgun = gunloadspinner(objRussianRoullete.bulletespinedgun);
+                MessageBox.Show("missedbullete");
+            }
+
         }
 
     }
